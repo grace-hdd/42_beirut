@@ -34,6 +34,7 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		len;
 	long	num;
+	int		start;
 
 	num = n;
 	len = ft_numlen(n);
@@ -41,13 +42,15 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
+	start = 0;
 	if (num < 0)
 	{
 		str[0] = '-';
 		num = -num;
 	}
-	while (len-- > (n < 0 ? 1 : 0))
+	while (len > start)
 	{
+		len--;
 		str[len] = (num % 10) + '0';
 		num /= 10;
 	}

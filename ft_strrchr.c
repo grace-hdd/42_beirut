@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strrchr(const char *str, int c)
+char	*strrchr(const char *str, int c)
 {
 	const char	*last_occurrence;
 
@@ -23,6 +23,5 @@ char *strrchr(const char *str, int c)
 	}
 	if (c == '\0')
 		return ((char *)str);
-
 	return ((char *)last_occurrence);
 }
