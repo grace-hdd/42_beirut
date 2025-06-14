@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-size_t strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned int	count;
-	unsigned int	index;
+	size_t	count;
+	size_t	index;
 
 	count = 0;
 	index = 0;
@@ -25,10 +25,10 @@ size_t strlcpy(char *dst, const char *src, size_t size);
 	{
 		while (src[index] != '\0' && index < (size - 1))
 		{
-			dest[index] = src[index];
+			dst[index] = src[index];
 			index++;
 		}
-		dest[index] = '\0';
+		dst[index] = '\0';
 	}
 	return (count);
 }

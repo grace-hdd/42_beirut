@@ -108,26 +108,26 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-int main(void)
-{
-    char const *s = "hello world 42 beirut";
-    char c = ' ';
-    char **result = ft_split(s, c);
-    int i = 0;
+// int main(void)
+// {
+//     char const *s = "hello world 42 beirut";
+//     char c = ' ';
+//     char **result = ft_split(s, c);
+//     int i = 0;
 
-    if (!result)
-    {
-        printf("ft_split returned NULL\n");
-        return 1;
-    }
+//     if (!result)
+//     {
+//         printf("ft_split returned NULL\n");
+//         return 1;
+//     }
 
-    while (result[i])
-    {
-        printf("result[%d]: %s\n", i, result[i]);
-        free(result[i]);
-        i++;
-    }
-    free(result);
+//     while (result[i])
+//     {
+//         printf("result[%d]: %s\n", i, result[i]);
+//         free(result[i]);
+//         i++;
+//     }
+//     free(result);
 
-    return 0;
-}
+//     return 0;
+// }

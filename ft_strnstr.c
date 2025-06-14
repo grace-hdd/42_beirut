@@ -12,7 +12,7 @@
 
 #include <stddef.h>
 
-char		*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 	size_t	j;
@@ -30,18 +30,18 @@ char		*ft_strnstr(const char *s1, const char *s2, size_t n)
 	return (NULL);
 }
 
-#include <stdio.h>
-int main() {
-	const char *haystack = "Hello, world!";
-	const char *needle = "x";
-	size_t n = 13; // Length of haystack
+// #include <stdio.h>
+// int main() {
+// 	const char *haystack = "Hello, world!";
+// 	const char *needle = "x";
+// 	size_t n = 13; // Length of haystack
 
-	char *result = ft_strnstr(haystack, needle, n);
-	if (result) {
-		printf("Found: %s\n", result);
-	} else {
-		printf("Not found\n");
-	}
+// 	char *result = ft_strnstr(haystack, needle, n);
+// 	if (result) {
+// 		printf("Found: %s\n", result);
+// 	} else {
+// 		printf("Not found\n");
+// 	}
 
-	return 0;
-}
+// 	return 0;
+// }

@@ -35,13 +35,12 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(n + '0', fd);
 }
 
-
-int main()
-{
-	// Example usage of ft_putnbr_fd
-	ft_putnbr_fd(42, 1); // Writes "42" to standard output (file descriptor 1)
-	ft_putchar_fd('\n', 1); // Writes a newline character
-	ft_putnbr_fd(-2147483648, 1); // Writes "-2147483648" to standard output
-	ft_putchar_fd('\n', 1); // Writes a newline character
-	return 0;
-}
+// int main()
+// {
+// 	// Example usage of ft_putnbr_fd
+// 	ft_putnbr_fd(42, 1); // Writes "42" to standard output (file descriptor 1)
+// 	ft_putchar_fd('\n', 1); // Writes a newline character
+// 	ft_putnbr_fd(-2147483648, 1); // Writes "-2147483648" to standard output
+// 	ft_putchar_fd('\n', 1); // Writes a newline character
+// 	return 0;
+// }

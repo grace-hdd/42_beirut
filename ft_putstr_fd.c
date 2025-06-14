@@ -23,10 +23,10 @@ void	ft_putstr_fd(char const *s, int fd)
 	}
 }
 
-int main()
-{
-	// Example usage of ft_putstr_fd
-	ft_putstr_fd("Hello, World!", 1); // Writes "Hello, World!" to standard output (file descriptor 1)
-	ft_putstr_fd("\n", 1); // Writes a newline character
-	return 0;
-}
+// int main()
+// {
+// 	// Example usage of ft_putstr_fd
+// 	ft_putstr_fd("Hello, World!", 1);
+// 	ft_putstr_fd("\n", 1);
+// 	return 0;
+// }

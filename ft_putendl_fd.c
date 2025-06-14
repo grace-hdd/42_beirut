@@ -24,10 +24,9 @@ void	ft_putendl_fd(char const *s, int fd)
 	write(fd, "\n", 1);
 }
 
-
-int main()
-{
-	// Example usage of ft_putendl_fd
-	ft_putendl_fd("Hello, World!", 1); // Writes "Hello, World!" followed by a newline to standard output (file descriptor 1)
-	return 0;
-}
+// int main()
+// {
+// 	// Example usage of ft_putendl_fd
+// 	ft_putendl_fd("Hello, World!", 1);
+// 	return 0;
+// }

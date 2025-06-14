@@ -1,16 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/14 16:44:56 by marvin            #+#    #+#             */
+/*   Updated: 2025/06/14 16:44:56 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <string.h>
-int ft_strlen(char const *s)
-{
-	int len = 0;
-	while (s[len])
-	{
-		len++;
-	}
-	return (len);
-}
 
-static int in_set(char c, char const *set)
+size_t	ft_strlen(const char *s);
+
+static int	in_set(char c, char const *set)
 {
 	while (*set)
 	{
@@ -23,12 +28,12 @@ static int in_set(char c, char const *set)
 	return (0);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int start;
-	int end;
-	int len;
-	char *trimmed;
+	int		start;
+	int		end;
+	int		len;
+	char	*trimmed;
 
 	start = 0;
 	end = ft_strlen(s1);
@@ -47,19 +52,19 @@ char *ft_strtrim(char const *s1, char const *set)
 	return (trimmed);
 }
 
-#include <stdio.h>
-int main(){
-	char const *s1 = "   Hello, World!   ";
-	char const *set = " ";
-	char *result = ft_strtrim(s1, set);
-	if (result)
-	{
-		printf("'%s'\n", result);
-		free(result);
-	}
-	else
-	{
-		printf("Memory allocation failed.\n");
-	}
-	return 0;
-}
+// #include <stdio.h>
+// int main(){
+// 	char const *s1 = "   Hello, World!   ";
+// 	char const *set = " ";
+// 	char *result = ft_strtrim(s1, set);
+// 	if (result)
+// 	{
+// 		printf("'%s'\n", result);
+// 		free(result);
+// 	}
+// 	else
+// 	{
+// 		printf("Memory allocation failed.\n");
+// 	}
+// 	return 0;
+// }

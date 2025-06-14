@@ -25,7 +25,7 @@ unsigned int	ft_strlen(char *str)
 	return (count);
 }
 
- size_t strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	unsigned int	c;
 	unsigned int	d;

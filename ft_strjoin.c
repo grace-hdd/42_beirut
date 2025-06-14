@@ -1,11 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/14 16:36:10 by marvin            #+#    #+#             */
+/*   Updated: 2025/06/14 16:36:10 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
-int ft_strlen(const char *s);
-char *ft_strjoin(char const *s1, char const *s2)
+size_t	ft_strlen(const char *s);
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int i;
-	int j;
-	char *str;
+	int		i;
+	int		j;
+	char	*str;
 
 	i = 0;
 	j = 0;
@@ -26,28 +39,20 @@ char *ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-int ft_strlen(const char *s)
-{
-	int len = 0;
-	while (s[len] != '\0')
-		len++;
-	return len;
-}
-
-#include <stdio.h>
-int main()
-{
-	const char *str1 = "Hello, ";
-	const char *str2 = "world!";
-	char *result = ft_strjoin(str1, str2);
-	if (result)
-	{
-		printf("Joined string: %s\n", result); // Should print "Hello, world!"
-		free(result); // Don't forget to free the allocated memory
-	}
-	else
-	{
-		printf("Memory allocation failed\n");
-	}
-	return 0;
-}
+// #include <stdio.h>
+// int main()
+// {
+// 	const char *str1 = "Hello, ";
+// 	const char *str2 = "world!";
+// 	char *result = ft_strjoin(str1, str2);
+// 	if (result)
+// 	{
+// 		printf("Joined string: %s\n", result); // Should print "Hello, world!"
+// 		free(result); // Don't forget to free the allocated memory
+// 	}
+// 	else
+// 	{
+// 		printf("Memory allocation failed\n");
+// 	}
+// 	return 0;
+// }
