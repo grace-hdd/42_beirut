@@ -1,43 +1,53 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: grhaddad <grhaddad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 16:21:21 by grhaddad          #+#    #+#             */
-/*   Updated: 2025/06/04 16:21:21 by grhaddad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdlib.h>
-#include <string.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int ft_strlen(const char *s);
+char *ft_strkoin(char const *s1, char const *s2)
 {
-	char	*joined;
-	size_t	len1;
-	size_t	len2;
-	size_t	i;
+	int i;
+	int j;
+	char *str;
 
-	if (!s1 || !s2)
-		return (NULL);
-	len1 = strlen(s1);
-	len2 = strlen(s2);
-	joined = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (!joined)
-		return (NULL);
 	i = 0;
-	while (i < len1)
+	j = 0;
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		joined[i] = s1[i];
+		str[i] = s1[i];
 		i++;
 	}
-	while (i < len1 + len2)
+	while (s2[j] != '\0')
 	{
-		joined[i] = s2[i - len1];
-		i++;
+		str[i + j] = s2[j];
+		j++;
 	}
-	joined[i] = '\0';
-	return (joined);
+	str[i + j] = '\0';
+	return (str);
+}
+
+int ft_strlen(const char *s)
+{
+	int len = 0;
+	while (s[len] != '\0')
+		len++;
+	return len;
+}
+
+#include <stdio.h>
+int main()
+{
+	const char *str1 = "Hello, ";
+	const char *str2 = "world!";
+	char *result = ft_strkoin(str1, str2);
+	if (result)
+	{
+		printf("Joined string: %s\n", result); // Should print "Hello, world!"
+		free(result); // Don't forget to free the allocated memory
+	}
+	else
+	{
+		printf("Memory allocation failed\n");
+	}
+	return 0;
 }

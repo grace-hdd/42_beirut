@@ -1,28 +1,31 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: grhaddad <grhaddad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 16:21:17 by grhaddad          #+#    #+#             */
-/*   Updated: 2025/06/04 16:21:17 by grhaddad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <string.h>
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	c;
-	int				diff;
+	size_t i;
 
-	c = 0;
-	diff = 0;
-	while ((c < n) && !diff && (s1[c] != '\0') && (s2[c] != '\0'))
+	i = 0;
+	if (n == 0)
+		return (0);
+	while ( i < n && s1[i] && s2[i])
 	{
-		diff = (unsigned char)s1[c] - (unsigned char)s2[c];
-		c++;
+		if (s1[i] != s2[i])
+		{
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		}
+		i++;
 	}
-	if (c < n && !diff && (s1[c] == '\0' || s2[c] == '\0'))
-		diff = (unsigned char)s1[c] - (unsigned char)s2[c];
-	return (diff);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+#include <stdio.h>
+int main() {
+	// Test cases for ft_strncmp
+	printf("Test 1: %d\n", ft_strncmp("hello", "hello", 5)); // Expected: 0
+	printf("Test 2: %d\n", ft_strncmp("hello", "hella", 5)); // Expected: >0
+	printf("Test 3: %d\n", ft_strncmp("hella", "hello", 5)); // Expected: <0
+	printf("Test 4: %d\n", ft_strncmp("hello", "helloa", 5)); // Expected: <0
+	printf("Test 5: %d\n", ft_strncmp("hello", "helloa", 6)); // Expected: <0
+	printf("Test 6: %d\n", ft_strncmp("", "", 0));           // Expected: 0
+	return 0;
 }

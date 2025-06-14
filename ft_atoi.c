@@ -1,36 +1,32 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: grhaddad <grhaddad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 16:20:12 by grhaddad          #+#    #+#             */
-/*   Updated: 2025/06/04 16:20:12 by grhaddad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <stdlib.h>
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int	c;
-	int	s;
-	int	res;
+    long			res;
+    long			sign;
+    unsigned int	i;
 
-	c = 0;
-	s = 1;
-	res = 0;
-	while ((str[c] >= '\t' && str[c] <= '\r') || str[c] == ' ')
-		c++;
-	while (str[c] == '+' || str[c] == '-')
-	{
-		if (str[c] == '-')
-			s *= -1;
-		c++;
-	}
-	while (str[c] >= '0' && str[c] <= '9')
-	{
-		res = (str[c] - '0') + (res * 10);
-		c++;
-	}
-	return (res * s);
+    res = 0;
+    sign = 1;
+    i = 0;
+    while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+        || str[i] == '\r' || str[i] == '\v' || str[i] == '\f')
+        i++;
+    if (str[i] == '-' || str[i] == '+')
+    {
+        if (str[i] == '-')
+            sign = -1;
+        i++;
+    }
+    while (str[i] >= '0' && str[i] <= '9')
+    {
+        res = res * 10 + (str[i] - '0');
+        i++;
+    }
+    return ((int)(res * sign));
+}
+
+#include <stdio.h>
+int main(){
+	printf("%d\n", ft_atoi("-51"));
 }

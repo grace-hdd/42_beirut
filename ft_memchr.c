@@ -1,25 +1,35 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: grhaddad <grhaddad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 16:21:43 by grhaddad          #+#    #+#             */
-/*   Updated: 2025/06/04 16:21:43 by grhaddad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <string.h>
+#include <stdio.h>
 
-void	*ft_memchr(const void *ptr, int value, int num)
+void *ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char	*p;
+    size_t i;
+    const unsigned char *ptr;
+	
+	ptr = (const unsigned char *)s;
+	i = 0;
+    while (i < n)
+    {
+        if (ptr[i] == (unsigned char)c)
+            return (void *)(ptr + i);
+		i++;
+    }
+    return NULL;
+}
 
-	p = (const unsigned char *)ptr;
-	while (num--)
-	{
-		if (*p == (unsigned char)value)
-			return ((void *)p);
-		p++;
-	}
-	return (0);
+int main()
+{
+    const char str[] = "Hello, world";
+    const char ch = 'o';
+    char *result;
+
+    result = ft_memchr(str, ch, sizeof(str));
+    if (result != NULL)
+    {
+        printf("%ld\n", result - str);
+    }
+    else
+    {
+        printf("Not found\n");
+    }
 }

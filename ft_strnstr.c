@@ -3,38 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grhaddad <grhaddad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: USER <USER@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 16:21:15 by grhaddad          #+#    #+#             */
-/*   Updated: 2025/06/04 16:21:15 by grhaddad         ###   ########.fr       */
+/*   Created: 2025/06/13 00:00:00 by USER              #+#    #+#             */
+/*   Updated: 2025/06/13 00:00:00 by USER             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(const char *str, const char *substr, int len)
-{
-	int	i;
-	int	j;
+#include <stddef.h>
 
-	if (!str || !substr)
-		return (0);
-	if (!*substr)
-		return ((char *)str);
+char		*ft_strnstr(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+	size_t	j;
+
 	i = 0;
-	while (str[i] && i < len)
+	while (i < n && s1[i] != '\0')
 	{
-		if (str[i] == substr[0])
-		{
-			j = 0;
-			while (substr[j] && str[i + j] && (i + j) < len)
-			{
-				if (str[i + j] != substr[j])
-					break ;
-				j++;
-			}
-			if (!substr[j])
-				return ((char *)&str[i]);
-		}
+		j = 0;
+		while (i + j < n && s1[i + j] == s2[j] && s2[j] != '\0')
+			j++;
+		if (s2[j] == '\0')
+			return ((char *)s1 + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
+}
+
+#include <stdio.h>
+int main() {
+	const char *haystack = "Hello, world!";
+	const char *needle = "x";
+	size_t n = 13; // Length of haystack
+
+	char *result = ft_strnstr(haystack, needle, n);
+	if (result) {
+		printf("Found: %s\n", result);
+	} else {
+		printf("Not found\n");
+	}
+
+	return 0;
 }

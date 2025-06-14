@@ -1,34 +1,45 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: grhaddad <grhaddad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 16:21:24 by grhaddad          #+#    #+#             */
-/*   Updated: 2025/06/04 16:21:24 by grhaddad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdlib.h>
 
-char	*ft_strdup(char *src)
+int ft_strlen(const char *s)
 {
-	int		i;
-	char	*dup;
+	int len = 0;
+	while (s[len] != '\0')
+		len++;
+	return len;
+}
+
+char *ft_strdup(const char *s)
+{
+	char *str;
+	size_t i;
 
 	i = 0;
-	while (src[i])
-		i++;
-	dup = (char *)malloc((i + 1) * sizeof(char));
-	if (!dup)
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s)) + 1);
+	if (!str)
 		return (NULL);
-	i = 0;
-	while (src[i])
+	while (s[i] != '\0')
 	{
-		dup[i] = src[i];
+		str[i] = s[i];
 		i++;
 	}
-	dup[i] = '\0';
-	return (dup);
+	str[i] = '\0';
+	return (str);
+}
+
+#include <stdio.h>
+int main()
+{
+	const char *original = "Hello, world!";
+	char *duplicate = ft_strdup(original);
+	if (duplicate)
+	{
+		printf("Original: %s\n", original);
+		printf("Duplicate: %s\n", duplicate);
+		free(duplicate); // Don't forget to free the allocated memory
+	}
+	else
+	{
+		printf("Memory allocation failed\n");
+	}
+	return 0;
 }
