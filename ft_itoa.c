@@ -16,15 +16,13 @@ static int	ft_numlen(int n)
 {
 	int	len;
 
-	len = (n <= 0);
+	len = n <= 0;
 	if (len)
 		return (1);
-	else
-		return (0);
 	while (n != 0)
 	{
-		n /= 10;
 		len++;
+		n /= 10;
 	}
 	return (len);
 }
@@ -34,7 +32,6 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		len;
 	long	num;
-	int		start;
 
 	num = n;
 	len = ft_numlen(n);
@@ -42,17 +39,25 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
-	start = 0;
 	if (num < 0)
 	{
 		str[0] = '-';
 		num = -num;
 	}
-	while (len > start)
+	while (len > 0)
 	{
-		len--;
-		str[len] = (num % 10) + '0';
+		str[--len] = (num % 10) + '0';
 		num /= 10;
 	}
 	return (str);
+}
+
+#include <stdio.h>
+
+int main()
+{
+	char *result = ft_itoa(-234);
+	printf("%s\n", result);
+	free(result);
+	return (0);
 }
