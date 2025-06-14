@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 int ft_strlen(const char *s);
-char *ft_strkoin(char const *s1, char const *s2)
+char *ft_strjoin(char const *s1, char const *s2)
 {
 	int i;
 	int j;
@@ -39,7 +39,7 @@ int main()
 {
 	const char *str1 = "Hello, ";
 	const char *str2 = "world!";
-	char *result = ft_strkoin(str1, str2);
+	char *result = ft_strjoin(str1, str2);
 	if (result)
 	{
 		printf("Joined string: %s\n", result); // Should print "Hello, world!"

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 unsigned int	ft_strlen(char *str)
 {
 	unsigned int	count;
@@ -23,21 +25,21 @@ unsigned int	ft_strlen(char *str)
 	return (count);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+ size_t strlcat(char *dst, const char *src, size_t size)
 {
 	unsigned int	c;
 	unsigned int	d;
 
-	if (size <= ft_strlen(dest))
+	if (size <= ft_strlen(dst))
 		return (size + ft_strlen(src));
-	c = ft_strlen(dest);
+	c = ft_strlen(dst);
 	d = 0;
 	while (src[0] != '\0' && c + 1 < size)
 	{
-		dest[c] = src[d];
+		dst[c] = src[d];
 		c++;
 		d++;
 	}
-	dest[c] = '\0';
-	return (ft_strlen(dest) + ft_strlen(&src[d]));
+	dst[c] = '\0';
+	return (ft_strlen(dst) + ft_strlen(&src[d]));
 }

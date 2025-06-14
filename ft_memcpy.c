@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memcpy(void *dest, const void *src, int n)
+void	*ft_memcpy(void *dest, const void *src, int n)
 {
 	char		*d;
 	const char	*s;
